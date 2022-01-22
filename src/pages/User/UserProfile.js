@@ -1,5 +1,5 @@
 import Alert from '@mui/material/Alert';
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProgressBar from '../../components/ProgressBar';
@@ -14,6 +14,7 @@ function UserProfile() {
     const [error, seterror] = useState(null)
     const [confirmation, setconfirmation] = useState(null)
     const [newuserphoto, setnewuserphoto] = useState('')
+    const [sendMail, setsendMail] = useState(false);
     
     const handleUserPhoto = (e) => {
         const selected = e.target.files[0] 
@@ -36,24 +37,49 @@ function UserProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const auth = getAuth();
-        await updateProfile(auth.currentUser, {
-        // displayName: "Jane Q. User", 
-        photoURL: newuserphoto
-        }).then(() => {
-            setconfirmation("Updated profile!");
-            setfile(null)
-            seterror('')
-        }).catch((error) => {
-            seterror("Something going wrong. PLease try again later!")
-            setconfirmation('')
-        });
+        if (newuserphoto) {
+            await updateProfile(auth.currentUser, {
+                // displayName: "Jane Q. User", 
+                    photoURL: newuserphoto
+                }).then(() => {
+                    setconfirmation("Updated profile!");
+                    setfile(null)
+                    seterror('')
+                }).catch((error) => {
+                    seterror("Something going wrong. PLease try again later!")
+                    setconfirmation('')
+                });    
+        }else{
+            seterror('Nothing to update')
+        }
+    }
+
+    //send verification mail to user
+    const verifyMail = () => {
+        sendEmailVerification(currentuser)
+        .then(() => {
+            setsendMail(true)
+        })
+        .catch((err) => {
+            seterror(err)
+        })
+
     }
     
     return (
         <Container>
             <div>
-            {emailVerified === false ? <Alert variant='outlined' severity="warning">User is not verified!</Alert> : <Alert severity="success">Verified user!</Alert>
+            {emailVerified === false ? (
+                <>
+                    <Alert variant='outlined' severity="warning">User is not verified!</Alert> 
+                    <button onClick={() => verifyMail()}>Verify mail</button>
+                </>
+            )
+            : <Alert severity="success">Verified user!</Alert>
             } 
+
+            {sendMail && <Alert variant='outlined' severity='success'>Verification mail send. Check your mail!!</Alert> }
+
             <h2 style={{margin: '1em 0'}}>Welcome, <User>{displayName}</User></h2> 
             
 
