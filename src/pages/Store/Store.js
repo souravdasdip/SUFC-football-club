@@ -34,12 +34,13 @@ function Store() {
 
         {!loading && items.length === 0 && (
           <div className="">
-            No data Found!
+            {/* No data Found! */}
           </div>
         )}
         {error && (
           <div className="">
-            There was an error! Please try again later. 
+            Store will be launched soon..
+            {/* There was an error! Please try again later.  */}
           </div>
         )}
         {loading && (

@@ -110,9 +110,9 @@ const Form = styled.form`
     flex-direction: column;
     gap: .6rem;
     flex: 1;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0,0.2);
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 5px;
 `
 
 const Button = styled.button`

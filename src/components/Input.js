@@ -12,10 +12,11 @@ const InputField = styled.input`
     border: none;
     padding: .5rem 1rem;
     font-family: "Poiret One", cursive;border-radius: 20px;
-    width: 80%;
-    font-weight: 900;
+    width: 90%;
+    font-weight: 800;
     letter-spacing: .1rem;
     line-height: 1.5rem;
+    border-radius: 5px;
 `
 
 export default Input

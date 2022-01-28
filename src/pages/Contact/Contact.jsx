@@ -8,28 +8,32 @@ function Contact() {
       <h1 style={{ margin: "4rem 0 1rem 0" }}>Contact Us</h1>
       <Container>
         <div style={{ flex: 1 }}>
-          <motion.h3
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8 }}
           >
-            <h2>#SoccerUnited Sports Zone. </h2>
+            <h2 style={{marginBottom: '1rem'}}>#SoccerUnited Sports Zone.</h2>
             <span>
-              <span style={{ fontWeight: 700, textDecoration: "underline" }}>
+              <span style={{fontWeight: 600, marginRight: '6px'}}>
                 Shop no:
-              </span>
-              11(Ground floor)
+              </span> 
+               11(Ground floor)
             </span>
             <p>
-              <span style={{ fontWeight: 700, textDecoration: "underline" }}>
+              <span style={{fontWeight: 600, marginRight: '6px'}}>
                 Address:
-              </span>{" "}
+              </span>
               Diganta kaja shopping Centre,Bahaddarhat, Chittagong.
             </p>
             <p>
-              Phone no: <a href="tel:+8801775383324">+8801775383324</a>
+              <span style={{fontWeight: 600, marginRight: '6px'}}>
+              Phone:
+              </span>
+               
+              <a href="tel:+8801775383324">+8801775383324</a>
             </p>
-          </motion.h3>
+          </motion.div>
         </div>
 
         <iframe
@@ -57,10 +61,10 @@ const Container = styled.div`
   justify-content: space-evenly;
   align-items: center;
   background-color: white;
-  padding: 3rem;
-  border-radius: 1rem;
+  padding: 2rem;
+  border-radius: 5px;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: .5rem;
 `;
 
 const Wrapper = styled.div`

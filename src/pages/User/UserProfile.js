@@ -85,12 +85,12 @@ function UserProfile() {
 
 
             <Details>Email: <span>{email}</span></Details>
-            <Details><span>Phone Number:</span> <span>{phoneNumber}</span> 
+            <Details>Phone Number: <span>{phoneNumber}</span> 
             <input type="tel" id="phone" name="phone" placeholder="+8801234-456-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
 
             </Details>
-            <Details>
-            <input type="file" onChange={handleUserPhoto}  />
+            <Details>Upload Photo: {" "} 
+            <input type="file" placeholder='Change your photo' onChange={handleUserPhoto}  />
             {error && <p>{error}</p>}
             
             </Details>
@@ -108,7 +108,11 @@ function UserProfile() {
     )
 }
 const Details = styled.div`
-    margin: 1em 0;
+    margin: .5em 0;
+    font-weight: 600;
+    span{
+        font-weight: 400
+    }
 `
 
 const Container = styled.div`

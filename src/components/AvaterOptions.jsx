@@ -2,9 +2,11 @@ import { Avatar, Button } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function AvaterOptions() {
+  const history = useHistory()
   const { logout, currentuser } = useAuth();
   const { displayName } = currentuser;
   console.log(displayName);
@@ -42,7 +44,7 @@ function AvaterOptions() {
           "aria-labelledby": "basic-button",
         }}
       >
-        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+        <MenuItem onClick={() => history.push('/profile')}>Profile</MenuItem>
         {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>

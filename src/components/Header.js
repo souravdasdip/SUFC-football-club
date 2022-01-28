@@ -58,7 +58,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(236, 240, 242);
+  // background-color: rgb(236, 240, 242);
   padding: 5px 0;
   position: sticky;
   top: 0;
@@ -66,7 +66,7 @@ const Container = styled.div`
 const Logo = styled.h2`
   display: flex;
   align-items: center;
-  font-weight: 800;
+  // font-weight: 100;
 `
 
 const StyledMenu = styled.div`
@@ -90,5 +90,5 @@ const LogoImage = styled.img`
 `
 
 const LogoTitle = styled.div`
-  font-weight: 800;
+  font-weight: 400;
 `

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import Footer from "../../components/Footer";
+import Gallery from "../../components/Gallery";
 import Contact from "../Contact/Contact";
 import Gallary from "../Gallary/Gallary";
 
@@ -44,8 +46,10 @@ function Home() {
       </Banner>
 
       <Gallary />
+      {/* <Gallery /> */}
 
       <Contact />
+      <Footer />
     </Container>
   );
 }
@@ -73,8 +77,8 @@ const Heading = styled.div``;
 
 const Title = styled.h1`
   font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  // font-weight: 800;
+  // letter-spacing: 0.1em;
   margin-bottom: 1rem;
 `;
 
